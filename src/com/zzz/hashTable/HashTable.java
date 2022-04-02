@@ -14,8 +14,6 @@ public class HashTable {
         hashTab.put("k8", "v8");
         hashTab.remove("k8");
         hashTab.remove("k90");
-        hashTab.remove("k90");
-        hashTab.remove("k90");
         hashTab.out();
 
     }
