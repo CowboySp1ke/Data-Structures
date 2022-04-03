@@ -8,28 +8,25 @@ public class BinaryTree {
         tree.add(1);
         tree.add(2);
         tree.add(0);
+        tree.add(5);
+        tree.add(9);
+        tree.add(6);
+        tree.delete(5);
         System.out.println("--------PreOrderTraversal--------");
         tree.preorder(); //3 1 2 4 9
-        System.out.println();
-        System.out.println("--------InOrderTraversal--------");
-        tree.inorder();  //1 2 3 4 9
-        System.out.println();
-        System.out.println("--------PostOrderTraversal--------");
-        tree.postorder(); // 2 1 9 4 3
-        System.out.println();
+//        System.out.println();
+//        System.out.println("--------InOrderTraversal--------");
+//        tree.inorder();  //1 2 3 4 9
+//        System.out.println();
+//        System.out.println("--------PostOrderTraversal--------");
+//        tree.postorder(); // 2 1 9 4 3
+//        System.out.println();
 
-        if (tree.preSearch(0) != null) {
-            System.out.println("找到该节点");
-        } else {
-            System.out.println("节点不存在");
-        }
-
-        System.out.println("测试git");
-        System.out.println("测试git");
-        System.out.println("测试git");
-        System.out.println("测试git");
-        System.out.println("测试git");
-        System.out.println("测试git");
+//        if (tree.preSearch(0) != null) {
+//            System.out.println("找到该节点");
+//        } else {
+//            System.out.println("节点不存在");
+//        }
     }
 }
 
@@ -165,6 +162,45 @@ class Tree{
             return temp;
         }
 
+        //删除节点/子树
+        public void deleteNode(int val) {
+            //如果左子节点不为空,判断其值是否匹配,否则判断左子树
+            if (this.left != null) {
+                if (this.left.data == val) {
+                    this.left = null;
+                    return;
+                } else {
+                    this.left.deleteNode(val);
+                }
+            }
+            //如果右子节点不为空,判断其值是否匹配,否则判断右子树
+            if (this.right != null) {
+                if (this.right.data == val) {
+                    this.right = null;
+                    return;
+                } else {
+                    this.right.deleteNode(val);
+                }
+            }
+              //韩顺平老师写法
+//            if (this.left != null && this.left.data == val) {
+//                this.left = null;
+//                return;
+//            }
+//            if (this.right != null && this.right.data == val) {
+//                this.right = null;
+//                return;
+//            }
+//            if (this.left != null) {
+//                this.left.deleteNode(val);
+//            }
+//            if (this.right != null) {
+//                this.right.deleteNode(val);
+//            }
+        }
+
+
+
     }
 
     private Node root;
@@ -177,6 +213,14 @@ class Tree{
             //如果不为空,判断添加到左子树还是右子树
         } else {
             root.addNode(newNode);
+        }
+    }
+
+    public void delete(int val) {
+        if (root.data == val) {
+            root = null;
+        } else {
+            root.deleteNode(val);
         }
     }
 
