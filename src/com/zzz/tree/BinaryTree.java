@@ -11,15 +11,15 @@ public class BinaryTree {
         tree.add(5);
         tree.add(9);
         tree.add(6);
-        tree.delete(5);
-        System.out.println("--------PreOrderTraversal--------");
-        tree.preorder(); //3 1 2 4 9
+//        tree.delete(5);
+//        System.out.println("--------PreOrderTraversal--------");
+//        tree.preorder();
 //        System.out.println();
 //        System.out.println("--------InOrderTraversal--------");
-//        tree.inorder();  //1 2 3 4 9
+//        tree.inorder();
 //        System.out.println();
 //        System.out.println("--------PostOrderTraversal--------");
-//        tree.postorder(); // 2 1 9 4 3
+//        tree.postorder();
 //        System.out.println();
 
 //        if (tree.preSearch(0) != null) {
@@ -228,9 +228,6 @@ class Tree{
         return root.preOrderSearch(data);
     }
 
-
-
-
     public void preorder() {
         root.PreorderTraversal();
     }
@@ -242,4 +239,6 @@ class Tree{
     public void postorder() {
         root.PostorderTraversal();
     }
+
+
 }
